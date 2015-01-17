@@ -10,10 +10,10 @@ import java.util.*;
 public class OutputGenerator {
 	public static ArrayList<ArrayList<item>> results;
 	public static void generateOutput(int numColours, StringBuilder outputStream) {
-		outputStream.append("&");
-		//outputStream.append(numColours + " was inputted.");
-		//outputStream.append("</html>");
 		results = new ArrayList<ArrayList<item>>();
+		outputStream.append("<html><head>");
+		outputStream.append("<style>.Circle1 {background: #f00;width: 25px;height: 25px;border-radius: 50%;}.Circle2 {background: rgb(0,0,0);width: 25px;height: 25px;border-radius: 50%;}.Circle3 {background: rgb(0,0,204);width: 25px;height: 25px;border-radius: 50%;}.Circle4 {background: rgb(255,255,0);width: 25px;height: 25px;border-radius: 50%;}.Circle5 {background: rgb(0,153,0);width: 25px;height: 25px;border-radius: 50%;}.Circle6 {background: rgb(153,0,153);width: 25px;height: 25px;border-radius: 50%;}.Circle7 {background: rgb(255,128,0);width: 25px;height: 25px;border-radius: 50%;}.Circle0 {background: rgb(102,51,0);width: 25px;height: 25px;border-radius: 50%;}</style></head>");
+		outputStream.append("</head><body>");
 		ArrayList<item> mySet = new ArrayList<item>();
 		for(int i = 0; i< numColours; i++){
 			//if we're doing the first thing.
@@ -23,11 +23,13 @@ public class OutputGenerator {
 				mySet.add(new item(i,j-1));
 			}
 		}
+		//so here, the recursive function is called.
 		allSets(new ArrayList<item>(),mySet);
+		// DEBUGGING:
 		System.out.println(results);
-		//string things.
+		// Sorting
 		Collections.sort(results, new Comparator<ArrayList<item>> () {
-
+			// This sorts the list completely.
 			@Override
 			public int compare(ArrayList<item> a, ArrayList<item> b) {
 				if(a.size() > b.size()){
@@ -36,15 +38,18 @@ public class OutputGenerator {
 					return 0;
 				}
 			});
+		// for loop that creates circles. NOTE: This does not work.
 		for(int i=0; i<results.size(); i++){
 			for(int j=0; j<results.get(i).size();j++){
 				outputStream.append("<td class='Circle"+results.get(i).get(j)+"'/>"+results.get(i).get(j)+"<td>");
 			}
-			outputStream.append("<br/>");
+			outputStream.append("</body><br/>");
 		}
-		outputStream.append("&");
+		outputStream.append("</html>");
 		//outputStream.append(results);
 	}
+	
+	//private items.
 	public static class item{
 		public int color;
 		public int secondColor;
@@ -85,6 +90,7 @@ public class OutputGenerator {
 			
 		}
 	}
+	//this is the recrusive function that does the analy
 public static void allSets(ArrayList<item> originalSet, ArrayList<item> leftOvers){
 	results.add(originalSet);
 	if(leftOvers.isEmpty()){
