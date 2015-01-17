@@ -31,7 +31,6 @@
                 contentType: 'application/x-www-form-urlencoded',
                 success: display
             });
-            $('.output').html(tableContent); 
             $('.circles').html(circle);
                
         };
@@ -104,18 +103,15 @@
     </head>
 
     <body>
+    <div class = "jumbotron">
         <div id="main" style="margin: 10px">
             <h1>Lost Marbles</h1>
             <form>
-                Number of Colours:
                 <!-- numberOfMarbles corresponds to POST_VAR in main.cpp-->
-                <input class = "input" type="text" name="numberOfMarbles">
+                <input class = "input" type="text" name="numberOfMarbles" placeholder = "Number of Colours">
                 <input class = "Submit" type="submit" value="Submit">
             </form>
-        </div>
-        
-        <div class = "output">
-
+    </div>
         </div>
         <div class = "circles">
 
