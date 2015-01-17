@@ -24,6 +24,16 @@
             for (var i = 0; i < parseInt(content); i++){
                 circle += "<td id = 'Circle5'> </td> <br>"
             }
+            $.ajax({
+                type: "POST",
+                url: '/',
+                data: "numberOfMarbles="+content,
+                success: function(data){
+                    var dataNew = JSON.parse('[[1], [2], [3], [1, 2], [2, 1], [1, 3], [3, 1], [2, 3], [3, 2], [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]');
+                    console.log(data);
+                    console.log(dataNew);
+                }
+            });
             $('.output').html(tableContent); 
             $('.circles').html(circle);
                
