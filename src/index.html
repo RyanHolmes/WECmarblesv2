@@ -50,49 +50,90 @@
         </script>
 
         <style>
+            .container, .jumbotron{
+                 opacity: 0.90;
+            }
+            /*.centered {
+              top: 50%;
+              left: 50%;
+            }*/
+            
+            body {
+             margin: 0;
+             background: url('http://i.imgur.com/qEsU6SS.jpg');
+             background-size: cover;
+             background-repeat: no-repeat;
+            display: compact;
+             font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
             .Circle1 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
+
             background: #f00;
             width: 25px;
             height: 25px;
             border-radius: 50%;
             }
             .Circle2 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
             background: rgb(0,0,0);
             width: 25px;
             height: 25px;
             border-radius: 50%;
             }
             .Circle3 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
             background: rgb(0,0,204);
             width: 25px;
             height: 25px;
             border-radius: 50%;
             }
             .Circle4 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
             background: rgb(255,255,0);
             width: 25px;
             height: 25px;
             border-radius: 50%;
             }
             .Circle5 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
             background: rgb(0,153,0);
             width: 25px;
             height: 25px;
             border-radius: 50%;
             }
             .Circle6 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
             background: rgb(153,0,153);
             width: 25px;
             height: 25px;
             border-radius: 50%;
             }
             .Circle7 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
             background: rgb(255,128,0);
             width: 25px;
             height: 25px;
             border-radius: 50%;
             }
             .Circle8 {
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
             background: rgb(102,51,0);
             width: 25px;
             height: 25px;
@@ -103,18 +144,26 @@
     </head>
 
     <body>
-    <div class = "jumbotron">
-        <div id="main" style="margin: 10px">
-            <h1>Lost Marbles</h1>
-            <form>
-                <!-- numberOfMarbles corresponds to POST_VAR in main.cpp-->
-                <input class = "input" type="text" name="numberOfMarbles" placeholder = "Number of Colours">
-                <input class = "Submit" type="submit" value="Submit">
-            </form>
-    </div>
+    <!-- submit portion -->
+
+        <div class = "jumbotron centered">
+        <div class="container">
+            <div id="main" style="margin: 10px">
+                <h1>Lost Marbles</h1>
+                <form>
+                    <!-- numberOfMarbles corresponds to POST_VAR in main.cpp-->
+                    <input class = "input" type="text" name="numberOfMarbles" placeholder = "Number of Colours">
+                    <input class = "Submit" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
+        </div>
+
+    <!-- circles -->
+    <div class = "container">
         <div class = "circles">
 
         </div>
+    </div>
     </body>
 </html>
