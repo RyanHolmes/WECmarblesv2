@@ -8,11 +8,12 @@ import java.util.*;
 
 
 public class OutputGenerator {
-	public static ArrayList<String> results = new ArrayList<String>();
+	public static ArrayList<ArrayList<item>> results;
 	public static void generateOutput(int numColours, StringBuilder outputStream) {
 		//outputStream.append("<html>");
 		//outputStream.append(numColours + " was inputted.");
 		//outputStream.append("</html>");
+		results = new ArrayList<ArrayList<item>>();
 		ArrayList<item> mySet = new ArrayList<item>();
 		for(int i = 0; i< numColours; i++){
 			//if we're doing the first thing.
@@ -21,6 +22,7 @@ public class OutputGenerator {
 		}
 		allSets(new ArrayList<item>(),mySet);
 		System.out.println(results);
+		//string things.
 		outputStream.append(results);
 	}
 	public static class item{
@@ -64,7 +66,7 @@ public class OutputGenerator {
 		}
 	}
 public static void allSets(ArrayList<item> originalSet, ArrayList<item> leftOvers){
-	results.add(originalSet.toString());
+	results.add(originalSet);
 	if(leftOvers.isEmpty()){
 		return;
 	}
